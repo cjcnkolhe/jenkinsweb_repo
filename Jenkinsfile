@@ -20,5 +20,12 @@ pipeline {
                  '''
             }
         }
+stage('Restart Web Server') {
+            steps {
+                sh '''
+                 systemctl restart apache2 ||  systemctl restart nginx
+                '''
+            }
+        }
     }
 }
