@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -13,13 +14,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                echo "Deploying application..."
+                    echo "Deploying application..."
 
-               sudo rm -rf /var/www/html/*
-                 sudo cp -r * /var/www/html/
-                 '''
+                    rm -rf /var/www/html/*
+
+                    cp -r * /var/www/html/
+
+                    echo "Deployment completed successfully!"
+                '''
             }
         }
-
     }
 }
